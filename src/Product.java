@@ -1,4 +1,4 @@
-public class Product {
+public abstract class Product {
     String name;
     int stockQuantity;
     double unitPrice;
@@ -9,9 +9,7 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    public double calculateTotalPrice() {
-        return 0;
-    }
+    public abstract double calculateTotalPrice();
 
     public String getName() {
         return name;
@@ -20,16 +18,6 @@ public class Product {
         return stockQuantity;
     }
     
-    public int comparableTo(Product p) {
-        double thisPrice = this.calculateTotalPrice();
-        double otherPrice = p.calculateTotalPrice();
-        if (Double.compare(thisPrice, otherPrice) != 0) {
-            return Double.compare(thisPrice, otherPrice);
-        } else if (!this.name.equals(p.name)) {
-            return this.name.compareTo(p.name);
-        } else {
-            return Integer.compare(this.stockQuantity, p.stockQuantity);
-        }
-    }
+
     
 }
